@@ -50,7 +50,6 @@ jobs:
         shell: bash
         run: |
           sudo add-apt-repository ppa:apt-fast/stable
-          sudo apt-get update
           sudo apt-get -y install apt-fast
           sudo apt-fast update -qqy
           sudo apt-fast install -qqy coreutils p7zip-full p7zip-rar python3 python3-pip rclone simg2img
@@ -73,6 +72,8 @@ jobs:
       - name: Decrypting the OFP firmware
         shell: bash
         run: |
+          sudo add-apt-repository ppa:apt-fast/stable
+          sudo apt-get -y install apt-fast
           sudo apt-fast update -qqy
           sudo apt-fast -y install python3-testresources
           sudo apt-fast install -qqy openssl rsync sshpass rclone jq
